@@ -1,0 +1,188 @@
+:root{
+  --blue-clr:#02458f;
+  --rosybrown-clr:rosybrown;
+  --white-clr:hsl(266.9,100%,100%);
+  --gray-clr:hsl(0,0.5%,26.5%);
+  --red-clr: crimson;
+  --green-clr: #1cd31c;
+  --box-shadow: 0 0 4px 1px hsla(191,95.2%,59.4%,0.14);
+  --header-shadow: 0 2px 4px 1px hsla(191,0%,0%,0.396);
+  --footer-shadow: 0 -2px 4px 1px hsla(191,0%,0%,0.396);
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  width: 100%;
+  height: 100vh;
+  background: hsl(266.9,100%,100%);
+  color: hsl(77.1,0%,9.5%);
+  position: relative;
+}
+header {
+  width: 100%;
+  height: 70px; 
+  box-shadow: var(--header-shadow);
+  background: var(--white-clr);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+header .container{
+  padding: 20px;
+}
+main {
+  width: 100%;
+  height: calc()100% - 200px; 
+  margin-top:  80px; 
+  padding: 20px;
+  overflow: hidden scroll;
+  padding-bottom: 50px;
+}
+footer {
+  width: 100%;
+  height: 50px; 
+  background: var(--white-clr);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+footer p {
+  font-size: .8rem;
+  color: var(--gray-clr);
+  text-align: center;
+}
+footer .container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.title{
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  color: var(--blue-clr);
+}
+
+/* TransactionSummary */
+.summary{
+  display: grid;
+  gap: 10px; 
+  grid-template-columns: 1fr 1fr;
+  border-radius: 8px;
+  box-shadow: 0 0 3px 1px hsla(266.9,0%,0%,0.1);
+  width: 100%;
+  padding: 10px 0;
+  
+}
+.balance{
+  margin-bottom: 20px;
+  width: 180px;
+  padding: 20px;
+  box-shadow: 0 0 3px 1px hsla(266.9,0%,0%,0.1);
+  height: 90px; 
+  border-bottom: 4px solid var(--rosybrown-clr);
+}
+.summary div{
+  padding: 20px;
+}
+.summary  div:nth-child(2){
+  border-left: 8px solid var(--rosybrown-clr);
+}
+.income p{
+  color: var(--green-clr);
+}
+.expense p{
+  color: var(--red-clr);
+}
+.income h3,
+.expense h3{
+  font-size: 1.3rem;
+  text-transform:capitalize;
+  padding-bottom: 10px;
+}
+
+
+.TransactionHistory{
+  margin-top: 40px;
+  padding: 0 20px;
+}
+.TransactionHistory li{
+  list-style: none;
+  width: 100%;
+  padding: 20px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+  position: relative;
+}
+.TransactionHistory li .delete{
+  display: none;
+  position: absolute;
+  left: -20px;
+  width: 30px;
+  height: 30px;
+  background: var(--white-clr);
+  box-shadow: 0 0 3px hsla(0,0%,0%,0.212);
+  border-radius: 3px;
+}
+.TransactionHistory li .delete::before,
+.TransactionHistory li .delete::after{
+  content: '';
+  position: absolute;
+  background: var(--red-clr);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 3px;
+  height: 100%;
+}
+.TransactionHistory li .delete::before{
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.TransactionHistory li:hover .delete{
+  display: block;
+}
+.TransactionHistory li .delete:hover{
+  opacity: .6;
+}
+.plus{
+  border-right:8px solid var(--green-clr);
+}
+.minus{
+  border-right:8px solid var(--red-clr);
+}
+.minuss{
+  color: var(--red-clr);
+}
+
+.AddNewTransaction{
+  margin-top: 40px;
+  padding: 0 10px;
+}
+  
+.AddNewTransaction form label{
+  width: 100%;
+  margin-bottom: 10px;
+  display: block;
+}
+.AddNewTransaction select,
+.AddNewTransaction input,
+.AddNewTransaction button{
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 5px;
+}
+.AddNewTransaction button{
+  background: var(--blue-clr);
+  color: var(--white-clr);
+  border-radius: 4px;
+  margin: 15px 0 ;
+}
